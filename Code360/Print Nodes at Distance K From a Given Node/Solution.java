@@ -59,7 +59,7 @@ public class Solution {
 
     public static void dfsHelper(BinaryTreeNode<Integer> root, BinaryTreeNode<Integer> target, int K,
             List<BinaryTreeNode<Integer>> sol) {
-        int temp = dfs(root, target, K, sol);
+        dfs(root, target, K, sol);
     }
 
     public static List<BinaryTreeNode<Integer>> printNodesAtDistanceK(BinaryTreeNode<Integer> root,
