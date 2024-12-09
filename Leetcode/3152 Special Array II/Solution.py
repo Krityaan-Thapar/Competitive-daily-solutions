@@ -1,12 +1,29 @@
-from math import log2
+from typing import List
 
 class Solution:
-    def smallestNumber(self, n: int) -> int:
-        if n == 1:
-            return 1
-        a = int(log2(n))
-        return (1 << (a + 1)) - 1
+    def isArraySpecial(self, nums: List[int], queries: List[List[int]]) -> List[bool]:
+        ans = []
+        dp = []
+        dp.append(1)
+        subarray_sum = 1
+        
+        for i in range(len(nums) - 1):
+            j = i + 1
+            par_i = nums[i] % 2
+            par_j = nums[j] % 2
+            if par_i != par_j:
+                subarray_sum += 1
+            dp.append(subarray_sum)
+        
+        for q in queries:
+            s, e = q[0], q[1]
+            if s == e:
+                ans.append(True)
+                continue
 
-class Solution2:
-    def smallestNumber(self, n: int) -> int:
-        return (1 << n.bit_length()) - 1
+            ql = e - s
+            if q != (dp[e] - dp[s]):
+                ans.append(False)
+                continue
+            ans.append(True)
+        return ans
