@@ -11,8 +11,7 @@ public class Solution {
         long binverse = B.modInverse(BigInteger.valueOf(mod)).longValue();
         return ((a) * (binverse % mod)) % mod;
     }
-
-    // DFS-function
+    
     public static long[] dfs(int root, List<Integer> graph[], long[] dp) {
         long res[] = new long[] { 1, 0 };
         int cnt = 0;
@@ -41,6 +40,7 @@ public class Solution {
     }
 
     public static int waysToBuildEmpire(int n, int[] prevKingdom) {
+        @SuppressWarnings("unchecked")
         List<Integer> graph[] = new ArrayList[n + 1];
         long fact[] = new long[prevKingdom.length + 1];
 
