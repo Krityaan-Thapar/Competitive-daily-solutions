@@ -34,3 +34,46 @@ class Solution:
                 if p == g * l:
                     ans = max(ans, j - i)
         return ans
+
+class Solution2:
+    def maxLength(self, nums: List[int]) -> int:
+        i, twos, threes, fives, sevens = 0, 0, 0, 0, 0
+        for j, x in enumerate(nums):
+            twos += x % 2 < 1
+            threes += x % 3 < 1
+            fives += x % 5 < 1
+            sevens += x == 7
+            if max(twos, threes, fives, sevens) > 1:
+                twos -= nums[i] % 2 < 1
+                threes -= nums[i] % 3 < 1
+                fives -= nums[i] % 5 < 1
+                sevens -= nums[i] == 7
+                i += 1
+        return max(2, len(nums) - i)
+
+class Solution3:
+    def maxLength(self, A: List[int]) -> int:
+        N = len(A)
+        ans = 2
+        last = {}
+        i = 0
+        for j, x in enumerate(A):
+            for p in prime_divisors(x):
+                i = max(i, last.get(p, -1) + 1)
+                last[p] = j
+            ans = max(ans, j - i + 1)
+        
+        return ans
+
+def prime_divisors(x):
+    d = 2
+    while d * d <= x:
+        if x % d == 0:
+            x //= d
+            while x % d == 0:
+                x //= d
+            yield d
+        d += 1 + d & 1
+    
+    if x > 1:
+        yield x
