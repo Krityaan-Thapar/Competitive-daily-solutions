@@ -58,3 +58,4 @@ https://www.naukri.com/code360/problems/maximum-points_3744650?leftPanelTabValue
 
 ## Daily History
 - Dec 11, 2024
+- Jan 15, 2025
