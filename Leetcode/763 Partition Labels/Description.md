@@ -33,4 +33,4 @@ Output: [10]
 https://leetcode.com/problems/partition-labels/editorial/
 
 ## Daily History
-- Mar 31, 2025
+- Mar 30, 2025
