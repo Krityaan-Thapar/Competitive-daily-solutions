@@ -43,7 +43,7 @@ Total points earned: 2 + 5 = 7. There is no other way to earn 7 or more points.
 ```
 
 ### Editorial
-https://leetcode.com/problems/check-if-a-parentheses-string-can-be-valid/editorial/
+https://leetcode.com/problems/solving-questions-with-brainpower/editorial
 
 ## Daily History
 - Apr 1, 2025
