@@ -37,3 +37,20 @@ class Solution:
         while any(store[i][d].val != store[0][d].val for i in range(p)):
             d -= 1
         return store[0][d]
+
+class Solution2:
+    def lcaDeepestLeaves(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        def dfs(node):
+            if node is None:
+                return (0, None)
+            
+            left_depth, left_lca = dfs(node.left)
+            right_depth, right_lca = dfs(node.right)
+
+            if left_depth > right_depth:
+                return (left_depth + 1, left_lca)
+            elif right_depth > left_depth:
+                return (right_depth + 1, right_lca)
+            else:
+                return (left_depth + 1, node)
+        return dfs(root)[1]
