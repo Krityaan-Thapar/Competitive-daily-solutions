@@ -1,4 +1,4 @@
-# Question 
+3# Question 
 
 _Difficulty: EaSY_
 
@@ -38,4 +38,4 @@ Explanation: The only ordered triplet of indices (0, 1, 2) has a negative value 
 https://leetcode.com/problems/maximum-value-of-an-ordered-triplet-i/editorial
 
 ## Daily History
-- Apr 2, 2025
+- Apr 3, 2025
