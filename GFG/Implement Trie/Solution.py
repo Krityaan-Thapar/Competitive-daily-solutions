@@ -1,17 +1,36 @@
-class Solution:
-    def power(self, b: float, e: int) -> float:
-        MOD = int(1e9) + 7
+class TrieNode:
+    def __init__(self):
+        self.children = [None for _ in range(26)]
+        self.isEnd = False
+
+ord_val = lambda ch: ord(ch) - ord('a')
+class Trie:
+    def __init__(self):
+        self.root = TrieNode()
         
-        n = -e if e < 0 else e
-        x = b
-        ans = 1.0
-        while n:
-            if n & 1:
-                ans *= x
-                n -= 1
-            else:
-                x *= x
-                n = n >> 1
-        if e < 0:
-            ans = 1.0 / ans
-        return ans
+    def insert(self, word: str):
+        curr = self.root
+        for ch in word:
+            idx = ord_val(ch)
+            if curr.children[idx] is None:
+                curr.children[idx] = TrieNode()
+            curr = curr.children[idx]
+        curr.isEnd = True
+
+    def search(self, word: str) -> bool:
+        curr = self.root
+        for ch in word:
+            idx = ord_val(ch)
+            if curr.children[idx] is None:
+                return False
+            curr = curr.children[idx]
+        return curr.isEnd
+
+    def isPrefix(self, word: str) -> bool:
+        curr = self.root
+        for ch in word:
+            idx = ord_val(ch)
+            if curr.children[idx] is None:
+                return False
+            curr = curr.children[idx]
+        return True
