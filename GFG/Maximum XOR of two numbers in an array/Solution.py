@@ -16,4 +16,3 @@ class Solution:
                     break
             s.clear()
         return res
-
